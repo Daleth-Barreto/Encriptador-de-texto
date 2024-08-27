@@ -1,0 +1,224 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --background-color-light: #f3f5fc;
+  --background-color-dark: #1e1e1e;
+  --text-color-light: #000;
+  --text-color-dark: #fff;
+  --button-text-light: #fff;
+  --button-text-dark: #fff;
+  --input-background-light: #f3f5fc;
+  --input-background-dark: #1e1e1e;
+  --input-text-light: #000;
+  --input-text-dark: #fff;
+  --border-color-light: #ccc;
+  --border-color-dark: #444;
+  --encriptado-background-light: #fff;
+  --encriptado-background-dark: #333;
+  --encriptado-shadow-light: rgba(0, 0, 0, 0.1);
+  --encriptado-shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5vw;
+}
+
+.texto {
+  width: 100%;
+  height: 60%;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  background-color: var(--input-background-light);
+  color: var(--input-text-light);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.texto::placeholder {
+  color: var(--border-color-light);
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--border-color-light);
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: var(--input-background-light);
+  color: var(--input-text-light);
+}
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: var(--button-text-light);
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.btn-encriptar {
+  background-color: var(--button-color-light);
+}
+#changePassword,
+.btn-desencriptar,
+.btn-encriptar {
+  background-color: #6c757d;
+}
+
+.btn-copy {
+  background-color: #28a745;
+}
+
+.encriptar{
+  width: 60%;
+  position: absolute;
+  left: 10vw;
+  border-radius: 0
+  
+}
+.encriptado {
+  width: 20%;
+  height: 75%;
+  background: var(--encriptado-background-light);
+  color: var(--text-color-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0px 4px 8px var(--encriptado-shadow-light);
+  position: absolute;
+  right: 10%;
+  top: 12.5%;
+}
+
+.mensaje-encriptado {
+  text-align: center;
+}
+
+.mensaje-encriptado h2 {
+  font-size: 24px;
+}
+
+.mensaje-encriptado p {
+  font-size: 16px;
+}
+
+.encriptado img {
+  width: 50%;
+}
+
+/* Responsive design */
+@media (max-width: 57.5em) {
+  .container {
+    flex-direction: row-reverse;
+  }
+  .encriptado {
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    top: 70%;
+    border-radius: 0px 0px 16px 16px;
+  }
+  .encriptar{
+    height: 60%;
+    width: 80%;
+  }
+  .encriptado img{
+    display: none;
+  }
+  .texto {
+    height: 50%;
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .texto {
+  background-color: var(--input-background-dark);
+  color: var(--input-text-dark);
+}
+
+body.dark-mode input[type="text"] {
+  background: var(--input-background-dark);
+  color: var(--input-text-dark);
+  border: 1px solid var(--border-color-dark);
+}
+
+body.dark-mode .btn-encriptar {
+  background-color: var(--button-color-dark);
+}
+
+body.dark-mode .btn-desencriptar {
+  background-color: #343a40;
+}
+
+body.dark-mode .btn-copy {
+  background-color: #218838;
+}
+
+body.dark-mode .encriptado {
+  background: var(--encriptado-background-dark);
+  color: var(--text-color-dark);
+  box-shadow: 0px 4px 8px var(--encriptado-shadow-dark);
+}
+
+/* Mode Switch Button */
+.mode-switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--button-color-light);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.mode-switch:hover {
+  transform: scale(1.1);
+}
+
+.mode-switch .icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Dark mode switch styles */
+body.dark-mode .mode-switch {
+  background-color: var(--button-color-dark);
+}
